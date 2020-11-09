@@ -23,7 +23,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
   
-  body, input, button {
+  body, input, button, select {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
   }
