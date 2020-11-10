@@ -11,6 +11,7 @@ interface User {
   avatar_url: string;
   name: string;
   bio: string;
+  html_url: string;
 }
 
 interface Repository {
@@ -20,6 +21,7 @@ interface Repository {
   stargazers_count: string;
   forks_count: string;
   language: string;
+  html_url: string;
   owner: {
     avatar_url: string;
   }
@@ -45,6 +47,16 @@ const Explorer = () => {
     setNewSearch('');
   }
 
+  function handleExcludeRepository(id: number) {
+    const newRepositoriesList = repositories.filter((item) => item.id !== id);
+    setRepositories(newRepositoriesList);
+  }
+
+  function handleExcludeUser(login: string) {
+    const newUsersList = users.filter((item) => item.login !== login);
+    setUsers(newUsersList);
+  }
+
   return (
     <S.Container>
       <Header>
@@ -65,30 +77,35 @@ const Explorer = () => {
       </Header>
 
       <S.MainContent>
-        <h4>Recentes</h4>
         {
-          filter === 'repos'
-          ? repositories.map(repo => (
+          filter === 'repos' && repositories.map(repo => (
             <RepositoryCard
               key={repo.id}
+              id={repo.id}
+              html_url={repo.html_url}
               full_name={repo.full_name}
               description={repo.description}
               stargazers_count={repo.stargazers_count}
               forks_count={repo.forks_count}
               language={repo.language}
               owner={repo.owner}
-            />
-          )).reverse()
-          : users.map(user => (
-            <UserCard 
-              key={user.login}
-              login={user.login}
-              avatar_url={user.avatar_url}
-              name={user.name}
-              bio={user.bio}
+              handleExcludeRepository={handleExcludeRepository}
             />
           )).reverse()
         }
+
+          {
+            filter === 'users' && users.map(user => (
+              <UserCard 
+                key={user.login}
+                login={user.login}
+                avatar_url={user.avatar_url}
+                name={user.name}
+                bio={user.bio}
+                handleExcludeUser={handleExcludeUser}
+              />
+            )).reverse()
+          }
       </S.MainContent>
     </S.Container>
   );

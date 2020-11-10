@@ -10,9 +10,10 @@ interface UserCardProps {
   avatar_url: string;
   name: string;
   bio?: string;
+  handleExcludeUser(login: string): void;
 }
 
-const UserCard = ({login, avatar_url, name, bio}: UserCardProps) => {
+const UserCard = ({login, avatar_url, name, bio, handleExcludeUser}: UserCardProps) => {
   return (
     <S.Container>
       <S.Card>
@@ -28,7 +29,9 @@ const UserCard = ({login, avatar_url, name, bio}: UserCardProps) => {
           <img src={arrowIcon} alt="Apagar"/>
         </a>
       </S.Card>
-      <img src={xIcon} alt="Apagar"/>
+      <button onClick={() => handleExcludeUser(login)}>
+        <img src={xIcon} alt="Apagar"/>
+      </button>
     </S.Container>
   )
 }

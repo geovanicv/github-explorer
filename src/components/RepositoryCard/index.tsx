@@ -10,6 +10,8 @@ import {api} from '../../api';
 import * as S from './styles';
 
 interface RepositoryCardProps {
+  id: number;
+  html_url: string;
   full_name: string;
   description: string;
   stargazers_count: string;
@@ -18,20 +20,25 @@ interface RepositoryCardProps {
   owner: {
     avatar_url: string;
   }
+  handleExcludeRepository(id: number): void;
 }
 
 interface Contributors {
   login: string;
   avatar_url: string;
+  html_url: string;
 }
 
 const RepositoryCard = ({
+  id,
+  html_url,
   full_name, 
   description, 
   stargazers_count, 
   forks_count, 
   language,
   owner,
+  handleExcludeRepository
 }: RepositoryCardProps) => {
   const [contributors, setContributors] = useState<Contributors[]>([]);
 
@@ -39,15 +46,15 @@ const RepositoryCard = ({
   useEffect(() => {
     async function handleFetchContributors() {
       const response = await fetch(`${api}/repos/${full_name}/contributors`);
-      const data = await response.json();
+      const data: Contributors[] = await response.json();
+
+      const firstContributors = data.filter((item, index) => index < 4);
   
-      setContributors(data)   
+      setContributors(firstContributors)   
     }
     handleFetchContributors();
   }, [full_name])
 
- 
-  
     return (
     <S.Container>
       <S.Card>
@@ -71,17 +78,21 @@ const RepositoryCard = ({
               <p>Build by</p> 
               <S.BuildByAvatars>
                 {contributors.map(c => (
-                  <img key={c.login} src={c.avatar_url} alt="Avatar"/>
+                  <a key={c.login} href={c.html_url}>
+                    <img src={c.avatar_url} alt="Avatar"/>
+                  </a>
                 ))}
               </S.BuildByAvatars>
             </S.BuildBy>
           </S.CardFooter>
         </S.CardInfos>
-        <a href="/">
+        <a href={html_url}>
           <img src={arrowIcon} alt="Apagar"/>
         </a>
       </S.Card>
-      <img src={xIcon} alt="Apagar"/>
+      <button onClick={() => handleExcludeRepository(id)}>
+        <img src={xIcon} alt="Apagar"/>
+      </button>
     </S.Container>
   )
 }
