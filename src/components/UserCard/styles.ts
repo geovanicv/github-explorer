@@ -5,6 +5,11 @@ export const Container = styled.div`
   height: 15.2rem;
   display: flex;
   margin-bottom: 1.2rem;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
 `;
 
 export const Card = styled.div`

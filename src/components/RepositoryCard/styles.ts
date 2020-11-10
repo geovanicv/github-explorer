@@ -4,6 +4,12 @@ export const Container = styled.div`
   width: 100%;
   height: 15.2rem;
   display: flex;
+  margin-bottom: 1.4rem;
+
+  button {
+    background: transparent;
+    border: 0;
+  }
 
 `;
 
