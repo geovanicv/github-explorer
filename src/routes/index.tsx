@@ -10,7 +10,7 @@ const Routes = () => (
   <Switch>
     <Route path="/" exact component={Trending} />
     <Route path="/explorer" component={Explorer} />
-    <Route path="/repository" component={Repository} />
+    <Route path="/repository/:reponame+" component={Repository} />
     <Route path="/profile" component={Profile} />
   </Switch>
 );

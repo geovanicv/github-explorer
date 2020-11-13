@@ -8,6 +8,7 @@ import arrowIcon from '../../assets/arrow-right.svg';
 import {api} from '../../api';
 
 import * as S from './styles';
+import { Link } from 'react-router-dom';
 
 interface RepositoryCardProps {
   id: number;
@@ -86,9 +87,9 @@ const RepositoryCard = ({
             </S.BuildBy>
           </S.CardFooter>
         </S.CardInfos>
-        <a href={html_url}>
+        <Link to={`/repository/${full_name}`}>
           <img src={arrowIcon} alt="Apagar"/>
-        </a>
+        </Link>
       </S.Card>
       <button onClick={() => handleExcludeRepository(id)}>
         <img src={xIcon} alt="Apagar"/>
