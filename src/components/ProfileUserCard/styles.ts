@@ -6,6 +6,7 @@ export const Container = styled.div`
   background: #4A4D4F;
   border-radius: 1rem;
   padding: 0 3.5rem;
+  margin-right: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -28,7 +29,7 @@ export const Container = styled.div`
     }
 
     h2 {
-
+      text-align: center;
     }
 
     span {

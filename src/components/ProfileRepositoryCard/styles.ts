@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 34rem;
-  height: 52rem;
+  max-height: 62rem;
   background: #4A4D4F;
   border-radius: 1rem;
   padding: 0 3.5rem;
@@ -32,7 +32,7 @@ export const Container = styled.div`
     }
 
     span {
-
+      text-align: center;;
     }
 
   }
