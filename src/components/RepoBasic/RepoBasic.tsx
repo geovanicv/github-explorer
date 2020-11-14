@@ -3,14 +3,26 @@ import React from 'react';
 import codeIcon from '../../assets/code.svg';
 import * as S from './styles';
 
-const RepoBasic = () => {
+interface RepoProps {
+  name: string;
+  description: string;
+  language: string;
+  full_name: string;
+}
+
+const RepoBasic = ({
+  description,
+  language,
+  name,
+  full_name,
+}: RepoProps) => {
   return (
-    <S.Container>
-      <S.RepoName>happy-web</S.RepoName>
-      <S.RepoDescription>Descrição do repositório</S.RepoDescription> 
+    <S.Container to={`/repository/${full_name}`}>
+      <S.RepoName>{name}</S.RepoName>
+      <S.RepoDescription>{description}</S.RepoDescription> 
       <S.RepoLanguage>
         <img src={codeIcon} alt="Linguagem"/>
-        Language
+        {language}
       </S.RepoLanguage>
     </S.Container>
   );
