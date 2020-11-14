@@ -14,6 +14,12 @@ export const Container = styled(Link)`
 
   text-decoration: none;
   color: #fff;
+
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateX(1rem);
+  }
 `;
 
 export const RepoName = styled.strong`

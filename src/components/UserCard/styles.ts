@@ -6,6 +6,12 @@ export const Container = styled.div`
   display: flex;
   margin-bottom: 1.2rem;
 
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateX(1rem);
+  }
+
   button {
     background: transparent;
     border: 0;

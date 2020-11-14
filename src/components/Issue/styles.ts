@@ -11,6 +11,12 @@ export const Container = styled.div`
   background: #323538;
   height: 14rem;
   width: 100%;
+
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateX(1rem);
+  }
 `;
 
 export const Header = styled.header`

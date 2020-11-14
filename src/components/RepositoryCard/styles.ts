@@ -5,6 +5,11 @@ export const Container = styled.div`
   height: 15.2rem;
   display: flex;
   margin-bottom: 1.4rem;
+  transition: transform 0.2s;
+  
+  &:hover {
+    transform: translateX(1rem);
+  }
 
   button {
     background: transparent;
