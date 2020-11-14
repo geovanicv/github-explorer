@@ -16,6 +16,7 @@ interface RepositoryProps {
   open_issues: number;
   owner: {
     avatar_url: string,
+    login: string;
   },
 }
 
@@ -69,18 +70,23 @@ const Repository = () => {
             forks_count={repository.forks_count}
             open_issues={repository.open_issues}
             owner={repository.owner}
+
           /> 
         }
         <S.IssuesContent>
-          {issues.map(item => (
-            <Issue 
-              key={item.number}
-              number={item.number} 
-              title={item.title}
-              user={item.user}
-              labels={item.labels}
-            />
-          ))}
+          <strong>Issues</strong>
+
+          { 
+            issues.length ? issues.map(item => (
+              <Issue 
+                key={item.number}
+                number={item.number} 
+                title={item.title}
+                user={item.user}
+                labels={item.labels}
+              />
+            )) : <strong>Nenhuma issue a ser listada</strong>
+          }
         </S.IssuesContent>
       </S.Content>
     </S.Container>

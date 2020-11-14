@@ -67,7 +67,9 @@ const Profile = () => {
         }
         <S.RepositoriesList>
           <strong>Repositórios</strong>
-          { repos && repos.map(item => (
+          
+          { 
+            repos.length ? repos.map(item => (
               <RepoBasic 
                 key={item.name}
                 description={item.description}
@@ -75,7 +77,7 @@ const Profile = () => {
                 name={item.name}
                 full_name={item.full_name}
               />
-          ))
+            )) : <strong>Nenhum repositório a ser listado</strong>
 
           }
         </S.RepositoriesList>
