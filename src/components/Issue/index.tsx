@@ -4,7 +4,7 @@ import issueIcon from '../../assets/info.svg';
 import * as S from './styles';
 
 interface IssueProps {
-  key: number;
+  html_url: string;
   number: number;
   title: string;
   user: {
@@ -17,7 +17,7 @@ interface IssueProps {
 }
 
 const Issue = ({
-  key,
+  html_url,
   number,
   title,
   user,
@@ -27,7 +27,7 @@ const Issue = ({
   const insertHashToColor = (color: string) => `#${color}`; 
 
   return (
-    <S.Container key={key}>
+    <S.Container href={html_url}>
       <S.Header>
         <S.IssueCode>#{number}</S.IssueCode>
         <S.LabelsContent>

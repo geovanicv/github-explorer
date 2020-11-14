@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,6 +17,9 @@ export const Container = styled.div`
   &:hover {
     transform: translateX(1rem);
   }
+
+  text-decoration: none;
+  color: #fff;
 `;
 
 export const Header = styled.header`

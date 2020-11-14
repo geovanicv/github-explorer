@@ -25,6 +25,8 @@ interface RepositoryParams {
 }
 
 interface IssueProps {
+  id: number;
+  html_url: string;
   number: number;
   title: string;
   user: {
@@ -78,8 +80,9 @@ const Repository = () => {
 
           { 
             issues.length ? issues.map(item => (
-              <Issue 
-                key={item.number}
+              <Issue
+                html_url={item.html_url}
+                key={item.id}
                 number={item.number} 
                 title={item.title}
                 user={item.user}
