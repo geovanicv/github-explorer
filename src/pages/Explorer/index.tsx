@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header';
 import RepositoryCard from '../../components/RepositoryCard';
 import UserCard from '../../components/UserCard';
 
+import searchImg from '../../assets/searchimg.svg';
+
 import {api} from '../../api';
 import * as S from './styles';
 
@@ -59,24 +61,28 @@ const Explorer = () => {
 
   return (
     <S.Container>
-      <Header>
-        <S.Title>Explore no Github.</S.Title>
-        <S.Form onSubmit={handleSearch}>
-          <select value={filter} onChange={e => setFilter(e.target.value)}>
-            <option value="repos">Repositórios</option>
-            <option value="users">Usuários</option>
-          </select>
-          <input 
-            type="text" 
-            placeholder="Digite aqui" 
-            value={newSearch} 
-            onChange={e => setNewSearch(e.target.value)}
-          />
-          <button type="submit">Pesquisar</button>
-        </S.Form>
-      </Header>
+      <Header />
+
+      <S.Title>Explore no Github.</S.Title>
+      <S.Form onSubmit={handleSearch}>
+        <select value={filter} onChange={e => setFilter(e.target.value)}>
+          <option value="repos">Repositórios</option>
+          <option value="users">Usuários</option>
+        </select>
+        <input 
+          type="text" 
+          placeholder="Digite aqui" 
+          value={newSearch} 
+          onChange={e => setNewSearch(e.target.value)}
+        />
+        <button type="submit">Pesquisar</button>
+      </S.Form>
+      
 
       <S.MainContent>
+        { !repositories.length && !users.length && 
+          <S.Search src={searchImg} alt="Nenhum recente"/> }
+
         {
           filter === 'repos' && repositories.map(repo => (
             <RepositoryCard
