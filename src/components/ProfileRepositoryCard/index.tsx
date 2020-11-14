@@ -5,6 +5,7 @@ import forkIcon from '../../assets/fork.svg';
 import issueIcon from '../../assets/info.svg';
 
 import * as S from './styles';
+import { Link } from 'react-router-dom';
 
 interface ProfileRepositoryProps {
   full_name: string;
@@ -15,6 +16,7 @@ interface ProfileRepositoryProps {
 
   owner: {
     avatar_url: string,
+    login: string;
   },
 }
 
@@ -24,12 +26,14 @@ const ProfileRepositoryCard = ({
   stargazers_count,
   forks_count,
   open_issues,
-  owner,
+  owner
 }: ProfileRepositoryProps) => {
   return (
     <S.Container>
       <header>
-        <img src={owner.avatar_url} alt={full_name}/>
+        <Link to={`/profile/${owner.login}`}>
+          <img src={owner.avatar_url} alt={full_name}/>
+        </Link>
         <h2>{full_name}</h2>
         <span>{description}</span>
       </header>

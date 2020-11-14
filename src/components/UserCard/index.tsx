@@ -4,6 +4,7 @@ import xIcon from '../../assets/x-circle.svg';
 import arrowIcon from '../../assets/arrow-right.svg';
 
 import * as S from './styles';
+import { Link } from 'react-router-dom';
 
 interface UserCardProps {
   login: string;
@@ -25,9 +26,9 @@ const UserCard = ({login, avatar_url, name, bio, handleExcludeUser}: UserCardPro
           </S.Username>
           <p>{bio}</p>
         </S.CardInfos>
-        <a href="/">
+        <Link to={`/profile/${login}`}>
           <img src={arrowIcon} alt="Apagar"/>
-        </a>
+        </Link>
       </S.Card>
       <button onClick={() => handleExcludeUser(login)}>
         <img src={xIcon} alt="Apagar"/>
