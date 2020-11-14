@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import RepositoryCard from '../../components/RepositoryCard';
 import UserCard from '../../components/UserCard';
@@ -33,8 +33,35 @@ const Explorer = () => {
   const [filter, setFilter] = useState('repos');
   const [newSearch, setNewSearch] = useState('');
 
-  const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [users, setUsers] = useState<User[]>([]);
+  const [repositories, setRepositories] = useState<Repository[]>(() => {
+    const storagedRepositories = localStorage.getItem('@github_explorer:repositories');
+
+    if (storagedRepositories) {
+      return JSON.parse(storagedRepositories);
+    } 
+
+    return [];
+  });
+
+  const [users, setUsers] = useState<User[]>(() => {
+    const storagedUsers = localStorage.getItem('@github_explorer:users');
+
+    if (storagedUsers) {
+      return JSON.parse(storagedUsers);
+    }
+
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@github_explorer:repositories',
+    JSON.stringify(repositories));
+  }, [repositories])
+
+  useEffect(() => {
+    localStorage.setItem('@github_explorer:users',
+    JSON.stringify(users))
+  }, [users])
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
