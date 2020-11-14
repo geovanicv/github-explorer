@@ -1,9 +1,10 @@
 import React from 'react';
 
-import avatar from '../../assets/avatar.png';
 import followingIcon from '../../assets/user-check.svg';
 import followsIcon from '../../assets/users.svg';
 import repositoriesIcon from '../../assets/info.svg';
+
+import {formatNumbers} from '../../utils/formatNumbers';
 
 import * as S from './styles';
 
@@ -40,19 +41,19 @@ const ProfileUserCard = ({
 
       <S.NumbersInfo>
           <img src={repositoriesIcon} alt="Repositórios"/>
-          <strong>{public_repos}</strong>
+          <strong>{formatNumbers(public_repos)}</strong>
           <span>Repositórios</span>
         </S.NumbersInfo>
         
         <S.NumbersInfo>
           <img src={followsIcon} alt="Seguidores"/>
-          <strong>{followers}</strong>
+          <strong>{formatNumbers(followers)}</strong>
           <span>Seguidores</span>
         </S.NumbersInfo>
 
         <S.NumbersInfo>
           <img src={followingIcon} alt="Seguindo"/>
-          <strong>{following}</strong>
+          <strong>{formatNumbers(following)}</strong>
           <span>Seguindo</span>
         </S.NumbersInfo>
         

@@ -6,6 +6,7 @@ import forkIcon from '../../assets/fork.svg';
 import arrowIcon from '../../assets/arrow-right.svg';
 
 import {api} from '../../api';
+import  {formatNumbers} from '../../utils/formatNumbers';
 
 import * as S from './styles';
 import { Link } from 'react-router-dom';
@@ -15,8 +16,8 @@ interface RepositoryCardProps {
   html_url: string;
   full_name: string;
   description: string;
-  stargazers_count: string;
-  forks_count: string;
+  stargazers_count: number;
+  forks_count: number;
   language: string;
   owner: {
     avatar_url: string;
@@ -32,7 +33,6 @@ interface Contributors {
 
 const RepositoryCard = ({
   id,
-  html_url,
   full_name, 
   description, 
   stargazers_count, 
@@ -66,17 +66,17 @@ const RepositoryCard = ({
           <S.CardFooter>
             <S.Stars>
               <img src={starIcon} alt="Estrelas"/>
-              {stargazers_count}
+              {formatNumbers(stargazers_count)}
             </S.Stars>
             <S.Forks>
               <img src={forkIcon} alt="Forks"/>
-              {forks_count}
+              {formatNumbers(forks_count)}
             </S.Forks>
             <S.Language>
               {language}
             </S.Language>
             <S.BuildBy>
-              <p>Build by</p> 
+              <p>Built by</p> 
               <S.BuildByAvatars>
                 {contributors.map(c => (
                   <a key={c.login} href={c.html_url}>

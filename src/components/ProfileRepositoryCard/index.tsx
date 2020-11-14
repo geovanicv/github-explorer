@@ -4,6 +4,8 @@ import starIcon from '../../assets/star.svg';
 import forkIcon from '../../assets/fork.svg';
 import issueIcon from '../../assets/info.svg';
 
+import { formatNumbers } from '../../utils/formatNumbers';
+
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 
@@ -40,17 +42,17 @@ const ProfileRepositoryCard = ({
       <main>
         <S.NumbersInfo>
           <img src={starIcon} alt="Estrela"/>
-          <strong>{stargazers_count}</strong>
+          <strong>{formatNumbers(stargazers_count)}</strong>
           <span>Stars</span>
         </S.NumbersInfo>
         <S.NumbersInfo>
           <img src={forkIcon} alt="Estrela"/>
-          <strong>{forks_count}</strong>
+          <strong>{formatNumbers(forks_count)}</strong>
           <span>Forks</span>
         </S.NumbersInfo>
         <S.NumbersInfo>
           <img src={issueIcon} alt="Estrela"/>
-          <strong>{open_issues}</strong>
+          <strong>{formatNumbers(open_issues)}</strong>
           <span>Issues</span>
         </S.NumbersInfo>
       </main>
