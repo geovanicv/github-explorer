@@ -7,12 +7,12 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-top: 9rem;
+  margin-top: 4rem;
 `;
 
 export const Form = styled.form`
   margin-top: 2.5rem;
-  margin-bottom: 9rem;
+  margin-bottom: 4rem;
   max-width: 100%;
   display: flex;
 
@@ -61,6 +61,18 @@ export const MainContent = styled.main`
   > h4 {
     padding: 0 0 1.4rem 0;
   }
+
+  margin-bottom: 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
+export const Search = styled.img`
+  margin-top: 5rem;
+  height: 20rem;
+`;
+
 
 

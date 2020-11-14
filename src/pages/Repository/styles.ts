@@ -7,8 +7,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-margin-top: 4rem;
- display: flex;
+  margin-top: 4rem;
+  display: flex;
 `;
 
 

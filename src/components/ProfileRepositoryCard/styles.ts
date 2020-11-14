@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.aside`
   width: 34rem;
+  min-height: 42rem;
   max-height: 62rem;
   background: #4A4D4F;
   border-radius: 1rem;
   padding: 0 3.5rem;
+
 
   display: flex;
   flex-direction: column;
@@ -17,6 +19,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     line-height: 3rem;
+    text-align: center;
 
     img {
       width: 12rem;
@@ -32,7 +35,9 @@ export const Container = styled.div`
     }
 
     span {
-      text-align: center;;
+      margin-top: 1.4rem;
+      text-align: center;
+      line-height: 2rem;
     }
 
   }

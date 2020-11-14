@@ -1,15 +1,19 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   background: #323538;
   width: 100%;
-  min-height: 12rem;
+  height: 14rem;
   border-radius: 5px;
   padding: 1.6rem 1.6rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  text-decoration: none;
+  color: #fff;
 `;
 
 export const RepoName = styled.strong`
@@ -24,6 +28,7 @@ export const RepoLanguage = styled.span`
     margin-right: 1.2rem;
   }
 
+  color: #A1A4A8;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
