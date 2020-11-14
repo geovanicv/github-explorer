@@ -85,6 +85,9 @@ export const BuildByAvatars = styled.div`
     height: 3.7rem;
     width: 3.7rem; 
     border-radius: 50%;
+    border: 3px solid white;
+    margin-right: -10px;
   }
+
 `;
 

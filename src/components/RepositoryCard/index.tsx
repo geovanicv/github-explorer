@@ -49,7 +49,7 @@ const RepositoryCard = ({
       const response = await fetch(`${api}/repos/${full_name}/contributors`);
       const data: Contributors[] = await response.json();
 
-      const firstContributors = data.filter((item, index) => index < 4);
+      const firstContributors = data.filter((item, index) => index < 5);
   
       setContributors(firstContributors)   
     }
