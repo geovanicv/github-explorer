@@ -30,6 +30,7 @@ interface Repository {
 }
 
 const Explorer = () => {
+  const [inputError, setInputError] = useState('');
   const [filter, setFilter] = useState('repos');
   const [newSearch, setNewSearch] = useState('');
 
@@ -54,6 +55,10 @@ const Explorer = () => {
   });
 
   useEffect(() => {
+    setInputError('')
+  }, [filter])
+
+  useEffect(() => {
     localStorage.setItem('@github_explorer:repositories',
     JSON.stringify(repositories));
   }, [repositories])
@@ -66,14 +71,27 @@ const Explorer = () => {
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const response = await fetch(`${api}/${filter}/${newSearch}`);
-    const data = await response.json();
+    if (!newSearch) {
+      setInputError('Favor preencha o campo!')
+      return;
+    }
 
-      filter === 'repos' 
-      ? setRepositories([...repositories, data])
-      : setUsers([...users, data]);
-    
-    setNewSearch('');
+      fetch(`${api}/${filter}/${newSearch}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+
+          return response.json();
+        })
+        .then(response => {
+          filter === 'repos' 
+          ? setRepositories([...repositories, response])
+          : setUsers([...users, response]);
+
+          setNewSearch('');
+          setInputError('');
+        }).catch(() => setInputError('Houve um erro na sua busca. Tente outro repositório ou usuário.'))
   }
 
   function handleExcludeRepository(id: number) {
@@ -91,20 +109,21 @@ const Explorer = () => {
       <Header />
 
       <S.Title>Explore no Github.</S.Title>
-      <S.Form onSubmit={handleSearch}>
+      <S.Form hasError={Boolean(inputError)} onSubmit={handleSearch}>
         <select value={filter} onChange={e => setFilter(e.target.value)}>
           <option value="repos">Repositórios</option>
           <option value="users">Usuários</option>
         </select>
         <input 
           type="text" 
-          placeholder="Digite aqui" 
+          placeholder="Digite aqui"
           value={newSearch} 
           onChange={e => setNewSearch(e.target.value)}
         />
         <button type="submit">Pesquisar</button>
-      </S.Form>
-      
+
+      <S.InputError>{inputError}</S.InputError>
+      </S.Form>   
 
       <S.MainContent>
         { !repositories.length && !users.length && 

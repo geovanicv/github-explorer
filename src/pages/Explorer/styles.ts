@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   max-width: 1114px;
@@ -10,11 +10,14 @@ export const Title = styled.h1`
   margin-top: 4rem;
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<{hasError: boolean}>`
   margin-top: 2.5rem;
   margin-bottom: 4rem;
   max-width: 100%;
   display: flex;
+  position: relative;
+
+ 
 
   select {
     height: 5rem;
@@ -22,6 +25,10 @@ export const Form = styled.form`
     border: 0;
     padding: 0 12px;
     background-color: #404344;
+
+    ${(props) => props.hasError && css`
+    border-bottom: 2px solid red;
+    `}
 
     &:after {}
   }
@@ -33,6 +40,10 @@ export const Form = styled.form`
     border: 0;
     background-color: #404344;
     color: white;
+
+    ${(props) => props.hasError && css`
+    border-bottom: 2px solid red;
+    `}
 
     &::placeholder {
       color: #A8A8B3;
@@ -74,5 +85,11 @@ export const Search = styled.img`
   height: 20rem;
 `;
 
+export const InputError = styled.span`
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  bottom: -25px;
+`;
 
 
