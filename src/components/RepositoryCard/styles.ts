@@ -14,7 +14,6 @@ export const Container = styled.div`
     background: transparent;
     border: 0;
   }
-
 `;
 
 export const Card = styled.div`
@@ -39,7 +38,7 @@ export const Card = styled.div`
     margin-right: 3.5rem; 
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     min-width: 200px;
     gap: 1.4rem;
@@ -62,12 +61,14 @@ export const CardInfos = styled.div`
   align-items: flex-start;
   justify-content: space-between;
 
-  h1 {
+  a {
+    text-decoration: none;
+    font-weight: bold;
     font-size: 2.4rem;
     color: #fff;
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 800px) {
     align-items: center;
     text-align: center;
 
@@ -91,25 +92,24 @@ export const Stars = styled.div`
   align-items: center;
   margin-right: 2.2rem;
 
-
   img {
     margin-right: 0.6rem;
   }
 `;
 export const Forks = styled(Stars)``;
+
 export const Language = styled.div`
   margin-right: 2.2rem;
 `;
-export const BuildBy = styled.div`
-  display: flex;
-  align-items: center;
 
-  p {
-    margin-right: 0.6rem;
-  }
+export const BuildBy = styled.div`
+  align-self: flex-end;
+  margin-bottom: -1.2rem;
 
   @media (max-width: 800px) {
-    display: none;
+    align-self: center;
+    margin-bottom: 0rem;
+
   }
 
 `;

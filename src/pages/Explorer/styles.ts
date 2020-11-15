@@ -8,6 +8,10 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   margin-top: 4rem;
+
+  @media (max-width: 600px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const Form = styled.form<{hasError: boolean}>`
@@ -16,11 +20,11 @@ export const Form = styled.form<{hasError: boolean}>`
   max-width: 100%;
   display: flex;
   position: relative;
+  height: 5rem;
 
- 
+  
 
   select {
-    height: 5rem;
     color: #A8A8B3;
     border: 0;
     padding: 0 12px;
@@ -35,7 +39,6 @@ export const Form = styled.form<{hasError: boolean}>`
 
   input {
     flex: 1;
-    height: 5rem;
     padding: 0 2.4rem;
     border: 0;
     background-color: #404344;
@@ -56,8 +59,7 @@ export const Form = styled.form<{hasError: boolean}>`
     justify-content: center;
     
 
-    width: 21rem;
-    height: 5rem;
+    min-width: 9rem;
     border-radius: 0 5px 5px 0;
 
     background: #16A862;

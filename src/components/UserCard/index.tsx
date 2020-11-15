@@ -21,14 +21,11 @@ const UserCard = ({login, avatar_url, name, bio, handleExcludeUser}: UserCardPro
         <img src={avatar_url} alt="Avatar"/>
         <S.CardInfos>
           <S.Username>
-            <h1>{name}</h1>
+            <Link to={`/profile/${login}`}>{name}</Link>
             <span>{login}</span>
           </S.Username>
           <p>{bio}</p>
         </S.CardInfos>
-        <Link to={`/profile/${login}`}>
-          <img src={arrowIcon} alt="Apagar"/>
-        </Link>
       </S.Card>
       <button onClick={() => handleExcludeUser(login)}>
         <img src={xIcon} alt="Apagar"/>

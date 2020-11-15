@@ -69,16 +69,22 @@ export const CardInfos = styled.div`
 export const Username = styled.div`
    margin-bottom: 1.6rem;
    
-   h1 {
+   a {
+    text-decoration:none;
+    font-weight: bold;
     font-size: 2.4rem;
     color: #fff;
   }
   span {
+      margin-left: 1rem;
       font-size: 1.4rem;
      }
 
   @media (max-width: 650px) {
-  text-align: center;
+    span {
+      display: block;
+    }
+    text-align: center;
   }
 
 `;

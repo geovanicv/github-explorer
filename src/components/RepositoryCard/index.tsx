@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import xIcon from '../../assets/x-circle.svg';
 import starIcon from '../../assets/star.svg';
 import forkIcon from '../../assets/fork.svg';
-import arrowIcon from '../../assets/arrow-right.svg';
 
 import {api} from '../../api';
 import  {formatNumbers} from '../../utils/formatNumbers';
@@ -61,7 +60,7 @@ const RepositoryCard = ({
       <S.Card>
         <img src={owner.avatar_url} alt="Avatar"/>
         <S.CardInfos>
-          <h1>{full_name}</h1>
+          <Link to={`repository/${full_name}`}>{full_name}</Link>
           <p>{description}</p>
           <S.CardFooter>
             <S.Stars>
@@ -75,21 +74,17 @@ const RepositoryCard = ({
             <S.Language>
               {language}
             </S.Language>
-            <S.BuildBy>
-              <p>Built by</p> 
-              <S.BuildByAvatars>
-                {contributors.map(c => (
-                  <a key={c.login} href={c.html_url}>
-                    <img src={c.avatar_url} alt="Avatar"/>
-                  </a>
-                ))}
-              </S.BuildByAvatars>
-            </S.BuildBy>
           </S.CardFooter>
         </S.CardInfos>
-        <Link to={`/repository/${full_name}`}>
-          <img src={arrowIcon} alt="Apagar"/>
-        </Link>
+        <S.BuildBy>
+          <S.BuildByAvatars>
+            {contributors.map(c => (
+              <a key={c.login} href={c.html_url}>
+                <img src={c.avatar_url} alt="Avatar"/>
+              </a>
+            ))}
+          </S.BuildByAvatars>
+        </S.BuildBy>
       </S.Card>
       <button onClick={() => handleExcludeRepository(id)}>
         <img src={xIcon} alt="Apagar"/>
