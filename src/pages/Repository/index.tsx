@@ -61,7 +61,7 @@ const Repository = () => {
 
   return (
     <S.Container>
-      <Header haveButtonBack="/explorer" />
+      <Header haveButtonBack="/" />
       <S.Content>
         {
           repository && 

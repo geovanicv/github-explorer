@@ -52,7 +52,7 @@ const Profile = () => {
 
   return (
     <S.Container>
-      <Header haveButtonBack="/explorer"/>
+      <Header haveButtonBack="/"/>
       <S.Content>
         { user && 
             <ProfileUserCard 

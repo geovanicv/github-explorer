@@ -7,7 +7,7 @@ import Profile from '../pages/Profile';
 
 const Routes = () => (
   <Switch>
-    <Route path="/explorer" component={Explorer} />
+    <Route path="/" exact component={Explorer} />
     <Route path="/repository/:reponame+" component={Repository} />
     <Route path="/profile/:login" component={Profile} />
   </Switch>

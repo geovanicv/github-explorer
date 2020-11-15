@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header';
 import RepositoryCard from '../../components/RepositoryCard';
 import UserCard from '../../components/UserCard';
 
+import searchIcon from '../../assets/search.svg';
+
 import searchImg from '../../assets/searchimg.svg';
 
 import {api} from '../../api';
@@ -120,7 +122,9 @@ const Explorer = () => {
           value={newSearch} 
           onChange={e => setNewSearch(e.target.value)}
         />
-        <button type="submit">Pesquisar</button>
+        <button type="submit">
+          <img src={searchIcon} alt="Pesquisar"/>
+        </button>
 
       <S.InputError>{inputError}</S.InputError>
       </S.Form>   
