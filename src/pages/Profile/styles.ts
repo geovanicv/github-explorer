@@ -10,6 +10,11 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin-top: 4rem;
   display: flex;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const RepositoriesList = styled.div`
@@ -18,6 +23,10 @@ export const RepositoriesList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: 800px) {
+    margin-top: 2rem;
+  }
 `;
 
 

@@ -9,6 +9,11 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin-top: 4rem;
   display: flex;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 
@@ -18,4 +23,8 @@ export const IssuesContent = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin-left: 2rem;
+
+  @media (max-width: 800px) {
+    margin-top: 2rem;
+  }
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 15.2rem;
   display: flex;
   margin-bottom: 1.2rem;
 
@@ -36,6 +35,20 @@ export const Card = styled.div`
     width: 11.2rem;
     margin-right: 3.5rem; 
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    min-width: 200px;
+    gap: 1.4rem;
+
+    > img {
+      padding: 3px;
+      height: 6.2rem;
+      width: 6.2rem;
+      margin: 0;
+    }
+
+  }
 `;
 
 export const CardInfos = styled.div`
@@ -46,6 +59,10 @@ export const CardInfos = styled.div`
   align-items: flex-start;
   justify-content: center;
 
+  @media (max-width: 650px) {
+    align-items: center;
+    text-align: center;
+  }
  
 `;
 
@@ -59,6 +76,10 @@ export const Username = styled.div`
   span {
       font-size: 1.4rem;
      }
+
+  @media (max-width: 650px) {
+  text-align: center;
+  }
 
 `;
 
