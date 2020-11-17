@@ -59,7 +59,7 @@ export const Form = styled.form<{hasError: boolean}>`
     justify-content: center;
     
 
-    min-width: 9rem;
+    width: 21rem;
     border-radius: 0 5px 5px 0;
 
     background: #16A862;
